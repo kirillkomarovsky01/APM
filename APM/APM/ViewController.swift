@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController {
 
-    let im = UIImage(named: "image")
+    //let im = UIImage()
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,8 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identi, for: indexPath) as! MyCollectionViewCell
         
-        cell.confic(imag: im!)
+        
+        cell.confic()
         return cell
     }
     

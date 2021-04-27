@@ -17,8 +17,9 @@ class MyCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    public func confic(imag: UIImage) {
-        imageView.image = imag
+    public func confic() {
+        imageView.sd_setImage(with: URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg"), placeholderImage: UIImage(named: "placeholder.png"))
+        //imageView.image = imag
     }
     
     
