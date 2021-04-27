@@ -9,6 +9,7 @@ import UIKit
 
 class MyCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     //static let im = UIImage(named: "image6")
     static let identi = "MyCollectionViewCell"
     @IBOutlet var imageView: UIImageView!
@@ -18,10 +19,15 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
     
     public func confic() {
-        imageView.sd_setImage(with: URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg"), placeholderImage: UIImage(named: "placeholder.png"))
-        //imageView.image = imag
+        
+        DispatchQueue.main.async {
+            if let url = URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg") {
+                if let data = try? Data(contentsOf: url) {
+                    self.imageView.image = UIImage(data: data)
+                }
+            }
+        }
     }
-    
     
     static func nib() -> UINib {
         return UINib(nibName: "MyCollectionViewCell", bundle: nil)

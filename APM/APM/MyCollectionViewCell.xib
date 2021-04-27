@@ -19,18 +19,30 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y84-J6-8Tf">
                         <rect key="frame" x="0.0" y="0.0" width="174" height="264"/>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="feA-Ee-tcz">
+                        <rect key="frame" x="67" y="112" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="SdI-Ng-oTT"/>
+                            <constraint firstAttribute="width" constant="40" id="gY4-pH-CG7"/>
+                        </constraints>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="y84-J6-8Tf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6o8-tz-pyq"/>
                 <constraint firstAttribute="bottom" secondItem="y84-J6-8Tf" secondAttribute="bottom" id="Ej6-40-bWx"/>
+                <constraint firstAttribute="bottom" secondItem="feA-Ee-tcz" secondAttribute="bottom" constant="112" id="Kit-yn-FWQ"/>
+                <constraint firstItem="feA-Ee-tcz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="67" id="QVj-B8-St5"/>
                 <constraint firstAttribute="trailing" secondItem="y84-J6-8Tf" secondAttribute="trailing" id="R3K-qK-aX0"/>
+                <constraint firstItem="feA-Ee-tcz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="112" id="cCf-Rz-wwN"/>
+                <constraint firstAttribute="trailing" secondItem="feA-Ee-tcz" secondAttribute="trailing" constant="67" id="jhN-Pu-HS2"/>
                 <constraint firstItem="y84-J6-8Tf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="l5O-FS-5qg"/>
             </constraints>
             <size key="customSize" width="174" height="264"/>
             <connections>
                 <outlet property="imageView" destination="y84-J6-8Tf" id="4Wy-kW-pAo"/>
+                <outlet property="indicator" destination="feA-Ee-tcz" id="C8C-AU-gnl"/>
             </connections>
             <point key="canvasLocation" x="227.536231884058" y="99.776785714285708"/>
         </collectionViewCell>
