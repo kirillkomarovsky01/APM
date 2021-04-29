@@ -18,21 +18,30 @@ class MyCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    public func confic() {
+    let url: URL? = URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg")
+    
+    public func confic() -> Bool {
+        
+        var flag: Bool = true
+        if self.url == nil {
+            flag = false
+            return flag
+        }
+        
         if (CheckInternet.isConnectedToNetwork() == true) {
+            
             DispatchQueue.main.async {
-                if let url = URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg") {
-                    if let data = try? Data(contentsOf: url) {
+                if self.url != nil {
+                    if let data = try? Data(contentsOf: self.url!) {
                         self.imageView.image = UIImage(data: data)
+                        flag = true
                     }
                 }
             }
         }
-        else {
-            imageView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            //indicator.startAnimating()
-        }
+        return flag
     }
+    
     
     static func nib() -> UINib {
         return UINib(nibName: "MyCollectionViewCell", bundle: nil)

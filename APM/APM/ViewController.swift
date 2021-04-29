@@ -39,8 +39,25 @@ extension ViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identi, for: indexPath) as! MyCollectionViewCell
         
         
-        cell.confic()
+        if (cell.confic())
+        {
+            print("good")
+        } else {
+            print("bad")
+            showAlert()
+        }
         return cell
+    }
+    func showAlert() {
+        
+        let alert = UIAlertController(title: "Error", message: "Cannot acces", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            print("tapped me")
+        }))
+        
+        present(alert, animated: true)
+    
     }
     
 }
