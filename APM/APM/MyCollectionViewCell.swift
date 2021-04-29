@@ -19,13 +19,18 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
     
     public func confic() {
-        
-        DispatchQueue.main.async {
-            if let url = URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg") {
-                if let data = try? Data(contentsOf: url) {
-                    self.imageView.image = UIImage(data: data)
+        if (CheckInternet.isConnectedToNetwork() == true) {
+            DispatchQueue.main.async {
+                if let url = URL(string: "https://m.gordonua.com/img/gallery/1511/82/106954_big.jpg") {
+                    if let data = try? Data(contentsOf: url) {
+                        self.imageView.image = UIImage(data: data)
+                    }
                 }
             }
+        }
+        else {
+            imageView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            //indicator.startAnimating()
         }
     }
     
